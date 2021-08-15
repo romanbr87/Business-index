@@ -18,19 +18,19 @@ export default function Itemdata(props) {
         <meta name="robots" content="follow, index" />
         <link rel="canonical" href="https://romanbr87.github.io/index/index.html" />
 
-        <meta name="description" content={props.data.gsx$desc.$t + props.data.gsx$desc2.$t} />
+        <meta name="description" content={props.data.gsx$desc + props.data.gsx$desc2} />
         <meta name="author" content="https://www.facebook.com/RonenBr60/" />
 
-        <meta property="og:description" content={props.data.gsx$desc.$t + props.data.gsx$desc2.$t} />
+        <meta property="og:description" content={props.data.gsx$desc + props.data.gsx$desc2} />
         <meta property="og:url" content="https://romanbr87.github.io/index/index.html" />
-        <meta property="og:title" content={props.data.gsx$name.$t} />
+        <meta property="og:title" content={props.data.gsx$name} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="אינדקס עסקים" />
-        <meta property="og:image" content={props.data.gsx$logo.$t} />
+        <meta property="og:image" content={props.data.gsx$logo} />
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-        <title>{props.data.gsx$name.$t}</title>
+        <title>{props.data.gsx$name}</title>
       </Head>
       <nav className="navbar navbar-inverse" style={{ textAlign: 'left' }}>
         <div className="container-fluid">
@@ -41,7 +41,7 @@ export default function Itemdata(props) {
       </nav>
 
       <div className="container" style={{ marginTop: '-6%', paddingTop: '0', textAlign: 'right', direction: 'rtl' }}>
-        <Item className="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-4" data={props.data } ua={props.ua} isLinkable={false} />
+        <Item className="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-4" data={props.data[0] } ua={props.ua} isLinkable={false} />
       </div>
     </React.Fragment>
   );

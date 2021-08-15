@@ -8,6 +8,7 @@ const app = express();
 const fetch = require('node-fetch');
 
 const index = require('./routes.js');
+const db1 = require('./db1.js');
 
 (async () => {
   await register(app);
@@ -23,14 +24,15 @@ app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
   
 
-app.get('/a', function(req, res, next) {
+/*app.get('/a', function(req, res, next) {
   let href = "https://spreadsheets.google.com/feeds/list/18GAUw1YmWC2pcCug6jqU_atcIn51fQSrDLNmcuqdoP8/od6/public/values?alt=json"
   fetch(href)
       .then(response => response.json())
       .then(data => { res.json (data) })
 	    .catch(err => res.status(404).json(err))
-});
+});*/
 
+app.use('/', db1);
 app.use('/', index);
 
 app.use(function(req, res, next) {

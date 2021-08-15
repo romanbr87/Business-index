@@ -67,14 +67,14 @@ export default function HomePage(props) {
 
     const soryByAtrr = (arr, attr) => {
         arr = arr.sort((a, b) => {
-            let res = a[attr].$t.localeCompare(b[attr].$t)
+            let res = a[attr].localeCompare(b[attr])
             return res;
         })
         return arr;
     }
 
-    const filterAlphabeticaly = (l, arr) => { return arr.filter(item => item.gsx$name.$t.charAt(0) === l) }
-    const filterByType = (type, arr) => { return arr.filter(item => item.gsx$type.$t === type) }
+    const filterAlphabeticaly = (l, arr) => { return arr.filter(item => item.gsx$name.charAt(0) === l) }
+    const filterByType = (type, arr) => { return arr.filter(item => item.gsx$type === type) }
 
     const text = "ברוכים הבאים לפיילוט של אינדקס העסקים של נוף הגליל. כאן תוכלו למצוא מידע עדכני ומפורט ככל האפשר על העסקים השונים בנוף הגליל"
 
@@ -159,7 +159,7 @@ export default function HomePage(props) {
                     (list.length == 0) ? '' :
                     (k == 0) ? <List key={0} list={list} filterBy={undefined} ua={props.ua} search={search}></List> :
                     (k == 1) ? <List key={1} list={list} filterBy={("אבגדהוזחטיכלמנסעפצקרשת").split('')} filterFunc={filterAlphabeticaly} ua={props.ua} search={search}></List> :
-                    (k == 2) ? <List key={2} list={list} filterBy={types.map(t => t.gsx$type.$t)} filterFunc={filterByType} ua={props.ua} search={search}></List> : ''
+                    (k == 2) ? <List key={2} list={list} filterBy={types.map(t => t.gsx$type)} filterFunc={filterByType} ua={props.ua} search={search}></List> : ''
                 }
             </div>
         </React.Fragment>
