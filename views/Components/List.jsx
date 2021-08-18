@@ -9,7 +9,7 @@ export default function List(props) {
             <div className="row ItemRow" id={attr}>
                 <h1 className="pageTitle" style={{ marginBottom: "0.5%", textDecoration: "underline"}}>{attr}</h1>
                 {
-                    props.filterFunc(attr, props.list).map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={false}
+                    props.filterFunc(attr, props.list).map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={true}
                     className="col-lg-4 col-md-4 col-sm-12 col-xs-12"></Item>)
                 }
             </div> : '';

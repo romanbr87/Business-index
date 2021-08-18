@@ -9,7 +9,7 @@ import "../../styles/style.css";
 export default function HomePage(props) {
     const [error1, setError1] = useState(null)
     const [error2, setError2] = useState(null)
-    const [isLoaded, setIsLoaded] = useState(true)
+    const [isLoaded, setIsLoaded] = useState(false)
     const [list, setList] = useState([]);
     const [types, setTypes] = useState([]);
     const [k, setK] = useState(0)
@@ -49,6 +49,7 @@ export default function HomePage(props) {
         fetch('/', requestOptions)
             .then(response => response.json())
             .then(data => {
+                console.log(soryByAtrr(data.businesses, "gsx$name"))
                 setList(soryByAtrr(data.businesses, "gsx$name"));
                 setTypes(soryByAtrr(data.types, "gsx$type"))
                 setIsLoaded(true)
@@ -94,7 +95,7 @@ export default function HomePage(props) {
 
 
     if (error1 || error2) {
-        return <div>Error: {error1.message + error2.message } </div>;
+        return [<h1>{error1}</h1>, <h1>{error2}</h1>]
     }
 
     else if (!isLoaded) {
@@ -130,8 +131,8 @@ export default function HomePage(props) {
                     <div className="form-group input-group input-group-sm" style={{ direction: "ltr"}}>
                         <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                         <div className="input-group-btn" style={{ direction: 'ltr'}}>
-                            <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                            <button onClick={refresh} title="רענון הדף" className="btn btn-default" type="button" style={{ margin: "0% 2% 0% 2%" }}><i className="glyphicon glyphicon-refresh"></i></button>
+                            <button className="btn btn-lg" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                            <button onClick={refresh} title="רענון הדף" className="btn btn-lg" type="button" style={{ margin: "0% 2% 0% 2%" }}><i className="glyphicon glyphicon-refresh"></i></button>
                         </div>
                     </div>
                 </form>

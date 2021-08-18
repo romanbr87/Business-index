@@ -5,9 +5,9 @@ const fetch = require('node-fetch');
 const mongoDB = require('./db.js');
 var Types = mongoDB.Types, Business = mongoDB.Business, db = mongoDB.db;
 
-Business.find ({})
+/*Business.find ({})
 .then (types => console.log (types))
-.catch (err => console.log(err))
+.catch (err => console.log(err))*/
 
 router.get('/', function(req, res, next) {
   var userAgent = req.headers['user-agent'];     // user-agent header from an HTTP request
@@ -52,8 +52,7 @@ router.post('/', function(req, res, next) {
       val.businesses = value[0];
       val.types = value[1];
       val.ua = userAgent;
-      return res.render('./Components/HomePage', val);
-      //return res.json (val);
+      return res.send(val);
     })
     .catch((err) => {
       var error = { }
@@ -89,7 +88,10 @@ router.get('/:id', function(req, res, next) {
   let id = req.params.id;
   Business.find ({ gsx$link: id })
   .then(data => {
-    res.render('./Components/Itemdata', { data: data, ua: userAgent });
+    console.log (data);
+    if (data.length == 0) next ( { message: "Id not found"})
+    if (data.length == 1)  res.render('./Components/Itemdata', { data: data[0], ua: userAgent });
+    else next ( { message: "Error"})
   })
   .catch(err => res.status(404).json(err))
 

@@ -16,13 +16,13 @@ export default function Itemdata(props) {
         <meta name="generator" content="slidify" />
         <meta name="google" content="notranslate" />
         <meta name="robots" content="follow, index" />
-        <link rel="canonical" href="https://romanbr87.github.io/index/index.html" />
+        <link rel="canonical" href="Businessindex.herokuapp.com" />
 
         <meta name="description" content={props.data.gsx$desc + props.data.gsx$desc2} />
         <meta name="author" content="https://www.facebook.com/RonenBr60/" />
 
         <meta property="og:description" content={props.data.gsx$desc + props.data.gsx$desc2} />
-        <meta property="og:url" content="https://romanbr87.github.io/index/index.html" />
+        <meta property="og:url" content="Businessindex.herokuapp.com" />
         <meta property="og:title" content={props.data.gsx$name} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="אינדקס עסקים" />
@@ -41,7 +41,7 @@ export default function Itemdata(props) {
       </nav>
 
       <div className="container" style={{ marginTop: '-6%', paddingTop: '0', textAlign: 'right', direction: 'rtl' }}>
-        <Item className="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-4" data={props.data[0] } ua={props.ua} isLinkable={false} />
+        <Item className="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-4" data={props.data } ua={props.ua} isLinkable={false} />
       </div>
     </React.Fragment>
   );
